@@ -1,0 +1,11 @@
+name: PandaBows
+version: 1.0-SNAPSHOT
+main: me.pandaplugins.pandabows.PandaBows
+api-version: 1.13
+authors: [TheCuddlyBear]
+description: A plugin with a lot of different types of bows
+website: pjanda.nl
+commands:
+  tpbow:
+    description: Gives you the teleportation bow
+    usage: /<command>
