@@ -25,6 +25,7 @@ public class TeleportBowCommand implements CommandExecutor {
             if (player.hasPermission("pandabows.tpbow")) {
                 ItemStack teleport_bow = new ItemStack(Material.BOW);
                 teleport_bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
+                
                 ItemMeta meta = teleport_bow.getItemMeta();
                 meta.setDisplayName(ChatColor.RED + "Teleporting Bow");
                 meta.setUnbreakable(true);
@@ -32,6 +33,7 @@ public class TeleportBowCommand implements CommandExecutor {
                 lore.add("This bow teleports you to where the arrow lands");
                 meta.setLore(lore);
                 teleport_bow.setItemMeta(meta);
+
                 player.getInventory().addItem(new ItemStack[] { teleport_bow });
             } else {
                 player.sendMessage(ChatColor.RED + "Invalid permissions!");
