@@ -19,6 +19,7 @@ public class TeleportBowEvent implements Listener {
         if (e.getEntity() instanceof org.bukkit.entity.Arrow) {
             ItemStack teleport_bow = new ItemStack(Material.BOW);
             teleport_bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
+            
             ItemMeta meta = teleport_bow.getItemMeta();
             meta.setDisplayName(ChatColor.RED + "Teleporting Bow");
             meta.setUnbreakable(true);
@@ -27,6 +28,7 @@ public class TeleportBowEvent implements Listener {
             meta.setLore(lore);
             teleport_bow.setItemMeta(meta);
             Player player = (Player)e.getEntity().getShooter();
+
             if (player.getInventory().getItemInMainHand().isSimilar(teleport_bow)) {
                 Location location = e.getEntity().getLocation();
                 Location playerLocation = ((Player)e.getEntity().getShooter()).getLocation();
