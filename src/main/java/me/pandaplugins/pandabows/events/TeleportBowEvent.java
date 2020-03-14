@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -19,12 +20,14 @@ public class TeleportBowEvent implements Listener {
         if (e.getEntity() instanceof org.bukkit.entity.Arrow) {
             ItemStack teleport_bow = new ItemStack(Material.BOW);
             teleport_bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
-            
+
             ItemMeta meta = teleport_bow.getItemMeta();
             meta.setDisplayName(ChatColor.RED + "Teleporting Bow");
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
             meta.setUnbreakable(true);
             ArrayList<String> lore = new ArrayList<>();
-            lore.add("This bow teleports you to where the arrow lands");
+            lore.add(ChatColor.GRAY + "Teleportation");
+            lore.add(ChatColor.GRAY + "Unbreaking ∞");
             meta.setLore(lore);
             teleport_bow.setItemMeta(meta);
             Player player = (Player)e.getEntity().getShooter();
