@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
@@ -25,12 +26,14 @@ public class TeleportBowCommand implements CommandExecutor {
             if (player.hasPermission("pandabows.tpbow")) {
                 ItemStack teleport_bow = new ItemStack(Material.BOW);
                 teleport_bow.addEnchantment(Enchantment.ARROW_INFINITE, 1);
-                
+
                 ItemMeta meta = teleport_bow.getItemMeta();
                 meta.setDisplayName(ChatColor.RED + "Teleporting Bow");
+                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
                 meta.setUnbreakable(true);
                 ArrayList<String> lore = new ArrayList<>();
-                lore.add("This bow teleports you to where the arrow lands");
+                lore.add(ChatColor.GRAY + "Teleportation");
+                lore.add(ChatColor.GRAY + "Unbreaking ∞");
                 meta.setLore(lore);
                 teleport_bow.setItemMeta(meta);
 
